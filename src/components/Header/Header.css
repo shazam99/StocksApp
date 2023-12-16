@@ -1,0 +1,59 @@
+.myHeaderDiv {
+    max-width: 100%;
+    /* background-color: #fff; */
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    /* Center the content horizontally */
+    height: 50px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: transparent;
+    backdrop-filter: blur(25px);
+}
+
+header {
+    max-width: 1000px;
+    margin: 0 auto;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0;
+
+}
+
+
+header button {
+    margin-right: 10px;
+    align-content: center;
+    align-items: center;
+}
+
+header .left-menu {
+    display: flex;
+    justify-content: flex-start;
+}
+
+header .left-menu a {
+    margin: 0 10px;
+}
+
+header .left-menu a img {
+    height: 30px;
+}
+
+@media screen and (max-width:500px) {
+    header .btn-link {
+        padding: 5px;
+    }
+
+    header .left-menu a img {
+        height: 20px;
+    }
+
+    .footer .container p {
+        font-size: 10px;
+    }
+}
