@@ -1,95 +1,85 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Header.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
+
+import { useDispatch, useSelector } from 'react-redux';
+import { setUser } from '../../utils/actions';
 
 const Header = () => {
-    const [user, setUser] = useState(false);
+
+    const dispatch = useDispatch();
+    const user = useSelector(state => state.user);
+    const { theme, colors } = useSelector((state) => state.theme);
+
+    const navigate = useNavigate();
+
 
     return (
-        <div className="myHeaderDiv">
-            {/* if !user */}
-            {!user && <header>
+        <div className="myHeaderDiv" style={{
+            background: colors[theme].header,
+            color: colors[theme].text,
+        }}>
+            <header >
+                    
                 <div className="left-menu">
-
-                    <Link class="navbar-brand mt-2 mt-lg-0" to='/'>
+                    <Link className="navbar-brand mt-2 mt-lg-0" to='/'>
                         <img
                             src="stocks-logo.png"
                             alt="MDB Logo"
                             loading="lazy"
                         />
                     </Link>
-                    <Link to='/stocks'>
-                        <button
-                            type="button"
-                            class="btn btn-link"
-                            data-mdb-ripple-init
-                            data-mdb-ripple-color="dark"
-                            style={{ color: "black" }}
-                        >
-                            Stocks
-                        </button>
-                    </Link>
+                    {user && <>
+                        <Link to='/stocks'>
+                            <button
+                                type="button"
+                                className="btn btn-light btn-sm"
+                                data-mdb-ripple-init
+                                data-mdb-ripple-color="dark"
+                                style={{ color: "black" }}
+                            >
+                                Stocks
+                            </button>
+                        </Link>
+                        <Link to='/fav'>
+                            <button
+                                type="button"
+                                className="btn btn-light btn-sm"
+                                data-mdb-ripple-init
+                                data-mdb-ripple-color="dark"
+                                style={{ color: "black" }}
+                            >
+                                Favourites
+                            </button>
+                        </Link>
+                    </>}
                 </div>
 
+
                 <div className="right-menu">
-                    <button
+                    {!user && <button
                         type="button"
-                        class="btn btn-primary btn-sm"
+                        className="btn btn-primary btn-sm"
                         data-mdb-ripple-init
-                        onClick={() => setUser(!user)}
+                        onClick={() => navigate('/login')}
                     >
                         Login
-                    </button>
-                </div>
-            </header>}
+                    </button>}
 
-            {/* if user */}
-            {user && <header>
-                <div className="left-menu">
-                    <Link class="navbar-brand mt-2 mt-lg-0" to='/'>
-                        <img
-                            src="stocks-logo.png"
-                            alt="MDB Logo"
-                            loading="lazy"
-                        />
-                    </Link>
-                    <Link to='/stocks'>
-                        <button
-                            type="button"
-                            class="btn btn-link"
-                            data-mdb-ripple-init
-                            data-mdb-ripple-color="dark"
-                            style={{ color: "black" }}
-                        >
-                            Stocks
-                        </button>
-                    </Link>
-                    <Link to='/fav'>
-                        <button
-                            type="button"
-                            class="btn btn-link"
-                            data-mdb-ripple-init
-                            data-mdb-ripple-color="dark"
-                            style={{ color: "black" }}
-                        >
-                            Favourites
-                        </button>
-                    </Link>
-                </div>
-
-
-                <div className="right-menu">
-                    <button
+                    {user && <button
                         type="button"
-                        class="btn btn-primary btn-sm"
+                        className="btn btn-primary btn-sm"
                         data-mdb-ripple-init
-                        onClick={() => setUser(!user)}
+                        onClick={() => { dispatch(setUser(false)); navigate('/') }}
                     >
                         Logout
-                    </button>
+                    </button>}
                 </div>
-            </header>}
+            </header>
         </div>
+
+
     );
 };
 

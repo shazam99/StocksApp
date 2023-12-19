@@ -1,0 +1,9 @@
+.stockspage{
+    min-height: calc(100vh - 350px);
+}
+
+@media screen and (max-width:500px) {
+    .loginDiv {
+        min-height: calc(100vh - 250px);
+    }
+}

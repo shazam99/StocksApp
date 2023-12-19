@@ -1,9 +1,7 @@
 .myHeaderDiv {
     max-width: 100%;
-    /* background-color: #fff; */
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
     text-align: center;
-    /* Center the content horizontally */
     height: 50px;
     position: fixed;
     top: 0;
@@ -45,8 +43,8 @@ header .left-menu a img {
 }
 
 @media screen and (max-width:500px) {
-    header .btn-link {
-        padding: 5px;
+    header .btn-light {
+        padding: 5px 10px;
     }
 
     header .left-menu a img {
