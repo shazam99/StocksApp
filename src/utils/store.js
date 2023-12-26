@@ -22,6 +22,7 @@ const initialState = {
             header: '#ffffff',
             footer: '#ffffff',
             button: '#e74c3c',
+            favCard: '#ffffff'
         },
         dark: {
             background: '#181818',
@@ -30,9 +31,11 @@ const initialState = {
             header: '#000',
             footer: '#181818',
             button: '#e74c3c',
+            favCard: '#272727'
         },
     },
 };
+
 const themeReducer = (state = initialState, action) => {
     switch (action.type) {
         case 'SET_THEME':
@@ -52,6 +55,15 @@ const registerUserReducer = (state = [], action) => {
     }
 };
 
+const favouriteReducer = (state = [], action) => {
+    switch (action.type) {
+        case 'SET_FAV':
+            return action.payload;
+        default:
+            return state;
+    }
+};
+
 
 
 // Combine reducers
@@ -59,6 +71,7 @@ const rootReducer = combineReducers({
     user: userReducer,
     theme: themeReducer,
     registerUser: registerUserReducer,
+    favourite: favouriteReducer,
 });
 
 // Create the Redux store

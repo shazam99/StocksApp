@@ -1,22 +1,16 @@
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux';
-import { setTheme } from '../../utils/actions';
+import {  useSelector } from 'react-redux';
 
 
 const Footer = () => {
-    const dispatch = useDispatch();
     const { theme, colors } = useSelector((state) => state.theme);
-    const toggleTheme = () => {
-        const newTheme = theme === 'light' ? 'dark' : 'light';
-        dispatch(setTheme(newTheme));
-    };
+
 
     return (
         <div className="main text-center footer" style={{
             background: colors[theme].footer,
             color: colors[theme].text,
         }}>
-            <button className='btn btn-danger btn-sm btn-rounded' onClick={toggleTheme}>Toggle Theme</button>
 
             {/* risk text  */}
             <div className="container pt-4">

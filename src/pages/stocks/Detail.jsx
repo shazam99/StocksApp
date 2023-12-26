@@ -62,10 +62,9 @@ const Detail = () => {
         ytdChange,
         isUSMarketOpen,
     } = data;
-    console.log(data)
 
     return (
-        <div className='main mt-5'>
+        <div className='main mt-5' style={{ minHeight: 'calc(100vh - 300px)' }}>
             {loading && <Loader />}
 
             {error && (

@@ -24,7 +24,6 @@ const Login = () => {
             for (let i=0;i<registerUser.length;i++){
                 if (registerUser[i].email === email){
                     if (registerUser[i].password === password) {
-                        alert("User Authenticated!");
                         dispatch(setUser(true));
                         navigate('/stocks')
                         return;
@@ -32,7 +31,8 @@ const Login = () => {
                 }
             }
         }
-        alert("Invalid Credentials!");                 
+
+        return alert("Invalid credentials")       
     };
 
     return (
@@ -90,3 +90,7 @@ const Login = () => {
 }
 
 export default Login
+
+    // <div className = "alert alert-success" role = "alert" >
+    //     User Authenticated
+    //             </div >

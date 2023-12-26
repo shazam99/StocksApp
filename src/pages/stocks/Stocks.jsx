@@ -37,8 +37,6 @@ const Stocks = () => {
         return <Loader />
     }
 
-
-
     const handleSearch = () => {
         if (data) {
             const term = searchTerm.toLowerCase();

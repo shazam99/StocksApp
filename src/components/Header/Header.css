@@ -1,7 +1,7 @@
 .myHeaderDiv {
     max-width: 100%;
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-    text-align: center;
+    /* text-align: center; */
     height: 50px;
     position: fixed;
     top: 0;
@@ -15,12 +15,14 @@ header {
     max-width: 1000px;
     margin: 0 auto;
     height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0;
-
 }
+
+header nav {
+    padding: 5px !important;
+    border: none;
+    box-shadow: 0 0 0 0 !important;
+}
+
 
 
 header button {
