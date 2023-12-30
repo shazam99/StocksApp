@@ -1,10 +1,11 @@
 
 const BASE_URL = 'https://cloud.iexapis.com/stable';
+const apiKey = process.env.REACT_APP_API_KEY;
 
 const api = {
     getStocks: async () => {
         try {
-            const response = await fetch(`${BASE_URL}/ref-data/symbols?token=sk_1b83b39105bb47929e97dab629b75e28`);
+            const response = await fetch(`${BASE_URL}/ref-data/symbols?token=${apiKey}`);
 
             if (!response.ok) {
                 throw new Error('Failed to fetch Stocks');
@@ -20,7 +21,7 @@ const api = {
 
     getSingleStock: async (stock) => {
         try {
-            const response = await fetch(`${BASE_URL}/stock/${stock}/quote?token=sk_1b83b39105bb47929e97dab629b75e28`);
+            const response = await fetch(`${BASE_URL}/stock/${stock}/quote?token=${apiKey}`);
 
             if (!response.ok) {
                 throw new Error(`Failed to ${stock} data`);
@@ -36,7 +37,7 @@ const api = {
 
     getChartData: async (stock,range) => {
         try {
-            const response = await fetch(`${BASE_URL}/stock/${stock}/chart/${range}?token=sk_1b83b39105bb47929e97dab629b75e28`);
+            const response = await fetch(`${BASE_URL}/stock/${stock}/chart/${range}?token=${apiKey}`);
 
             if (!response.ok) {
                 throw new Error(`Failed to ${stock} data`);
@@ -53,7 +54,7 @@ const api = {
     getFavStocks: async (favs) => {
         if (favs.length !== 0){
             try {
-                const apiUrl = symbol => `${BASE_URL}/stock/${symbol}/quote?token=sk_1b83b39105bb47929e97dab629b75e28`;
+                const apiUrl = symbol => `${BASE_URL}/stock/${symbol}/quote?token=${apiKey}`;
                 
                 const responses = await Promise.all(favs.map(symbol => fetch(apiUrl(symbol))));
                 

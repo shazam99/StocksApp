@@ -38,7 +38,6 @@ const Detail = () => {
                 setLoading(true);
                 const chartData = await api.getChartData(stockName, range);
                 setChartData(chartData);
-                console.log(chartData);
             } catch (error) {
                 console.error('Error fetching Stocks:', error);
                 setError(error);

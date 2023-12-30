@@ -75,7 +75,6 @@ const Header = () => {
                                 <button className='btn btn-danger btn-sm' onClick={toggleTheme}><i className="fas fa-sun"></i></button>
 
                                 {!user && <button
-                                    type="button"
                                     className="btn btn-primary btn-sm"
                                     data-mdb-ripple-init
                                     onClick={() => navigate('/login')}
@@ -85,7 +84,6 @@ const Header = () => {
 
                                 {user && <>
                                     <button
-                                        type="button"
                                         className="btn btn-primary btn-sm"
                                         data-mdb-ripple-init
                                         onClick={() => { dispatch(setUser(false)); navigate('/') }}
@@ -93,7 +91,7 @@ const Header = () => {
                                         Logout
                                     </button>
                                     <button
-                                        className="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+                                        className="nav-link" href="#" data-bs-toggle="dropdown" aria-expanded="false"
                                     >
                                         <i className="fas fa-bell"></i>
                                     </button>
