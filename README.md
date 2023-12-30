@@ -5,7 +5,7 @@ The Stock Market Dashboard is an interactive platform for users to view and anal
 ## Cloning the Repository
 
 Clone the repository using the following command:
-    ```bash
+    ```
     git clone https://github.com/shazam99/StocksApp.git
     ```
 
